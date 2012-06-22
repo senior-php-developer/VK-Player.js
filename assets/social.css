@@ -1,0 +1,13 @@
+body {font-family: Arial; margin:0; background:none; width: 760px; height: 600px;}
+.wrap {width: 720px; padding: 10px; min-height: 500px; overflow: hidden; margin: 0 auto;}
+
+.live {background: white; margin:0 auto; overflow:hidden; width:595px; position: absolute; left: 70px; top: 88px; z-index: 800; border: 3px solid #F1BF5C; border-top: none; display: none; cursor: pointer;}
+.artists {height: 492px; width: 350px; float: left; border: 3px solid #444;  background: #232323; overflow: auto; margin: 6px 10px 0 0; display: none;}
+.artists .artist {background-position: center center; background-repeat: no-repeat; width: 100px; height: 100px; float: left; margin: 4px 5px; text-align: center; cursor: pointer; overflow: hidden; -webkit-background-size: 100px auto; -moz-background-size: 100px auto; background-size: 100px auto;}
+.player {float: right; margin: 6px 0;}
+
+#accordion {visibility: hidden; width: 350px}
+
+.results {height: 383px; border: 2px solid #444; border-top: none; color: #333; overflow: auto;}
+.results .row .track {width: 243px;}
+#vk-login {background: rgba(255,255,255,0.7);}

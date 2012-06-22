@@ -1,0 +1,89 @@
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, a, img,
+b, center, dl, dd, dt, ol, ul, li, fieldset, form, label
+table, tbody, tfoot, thead, tr, th, td {margin: 0; padding: 0; border: 0; outline: 0; vertical-align: baseline;}
+table {border-collapse: collapse;	border-spacing: 0;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+:focus {outline: 0;}
+button::-moz-focus-inner {border: 0; padding: 0;}
+.firefox button {vertical-align: bottom;}
+
+@font-face {font-family: 'SpinCycle3DOTRegular';	src: url('font/spincycle_3d_ot-webfont.eot');	src: local('°'), url('font/spincycle_3d_ot-webfont.ttf') format('truetype');	font-weight: normal;	font-style: normal;}
+
+.lt {float: left;}
+.rt {float: right;}
+.hide {display: none;}
+.clr {overflow: hidden;}
+.clear {visibility: hidden; clear: both; width:0 ; height: 0;}
+
+body {font-family: Arial; margin:5px auto; background: #232323;}
+h1 {color:#ACE7D8;font-size:42px;text-align:center; font-family: 'SpinCycle3DOTRegular'}
+
+.wrap {width: 805px; min-height: 580px; overflow: hidden; margin: 0 auto; position: relative;}
+
+.search {width: 600px; margin: 0 auto;}
+.search .query {border:3px solid #B4C9E1; font-size:25px; padding:3px 10px;width:575px; margin: 7px 0;} 
+.search .query:hover, .search .query:focus, .search .query.active {border: 3px solid #F1BF5C;}
+.search button {background: #2050DE; border:3px solid #3C5EC2; color:#eee;cursor:pointer; font-family:Verdana; font-size:14px; margin:0 0 0 15px; padding:5px 10px; text-shadow: 0 1px 0 #323232; text-transform:uppercase;}
+.search button:hover {border: 3px solid #479A2D; }
+
+.live {background: white; margin:0 auto; overflow:hidden; width:595px; position: absolute; left: 102px; top:45px; z-index: 800; border: 3px solid #F1BF5C; border-top: none; display: none; cursor: pointer;}
+.live .artist {overflow: hidden; border-top: 1px solid #eee; padding: 3px 10px; line-height: 32px;}
+.live .artist:hover {background:#ffefb1; }
+.live .artist span {}
+.live .artist img {border:1px solid #333333;float:right;height:32px;}
+
+.artists {height: 492px; width: 410px; float: left; border: 3px solid #444; overflow: auto; margin: 10px; display: none;}
+.artists .artist {background-position: center center; background-repeat: no-repeat; width: 115px; height: 115px; float: left; margin: 4px 8px; text-align: center; cursor: pointer; overflow: hidden; -webkit-background-size: 115px auto; -moz-background-size: 115px auto; background-size: 115px auto;}
+.artists .name {background:rgba(0, 0, 0, 0.6); color:#FFFFFF; font-size:14px; padding:3px; text-shadow:0 1px 0 #000000;}
+.artists .artist.active .name {color: #F5E05F; }
+
+.ie .artists .name {background: #111; filter: alpha(opacity=70); font-weight: bold;}
+
+#accordion {visibility: hidden; width: 367px}
+#accordion h3 {border: 2px solid #444; text-shadow: 0 1px 0 #222222; font-size: 16px; padding: 4px; text-align: center;}
+
+.player {float: right; margin: 10px 0;}
+
+.results {height: 383px; border: 2px solid #444; border-top: none; color: #333; overflow: auto;}
+.results .row {overflow: hidden; background: #666; border-top: 1px solid #aaa; border-bottom: 1px solid #444; padding: 2px 5px; font-family: Arial; cursor: pointer;}
+.results .row:hover {background: #888;}
+.results .row.active {background: #222; color: #90E3D6; border-top: 1px solid #222;}
+
+.results .row .track {float:left; width:225px; font-size: 12px; line-height: 120%;}
+.results .row .info {float: right; width: 110px; font-size: 11px; text-align:right; line-height: 26px;}
+.results .row .dur {margin-right: 7px;}
+.results .row img {border: none; position:relative; top:5px; margin-left: 1px;}
+
+.results .row.more {text-align: center; font-size: 17px; font-weight: bold;}
+
+#playlist {height: 383px; border: 2px solid #444; border-top: none; color: #333; overflow: auto; display: none;}
+#playlist .row {overflow: hidden; background: #666; border-top: 1px solid #aaa; border-bottom: 1px solid #444; padding: 2px 5px; font-family: Arial; cursor: pointer;}
+#playlist .row:hover {background: #888;}
+#playlist .row.active {background: #222; color: #90E3D6; border-top: 1px solid #222;}
+
+#playlist .row .track {float:left; width:260px; font-size: 12px; line-height: 120%;}
+#playlist .row .info {float: right; width: 20px; font-size: 11px; margin-right:5px; text-align:right; line-height: 26px;}
+#playlist .row img {border: none; float: left; position:relative; top:4px;}
+
+
+#vk-login {width: 100%; height: 100%; position: fixed; z-index: 999; background: rgba(0,0,0,0.8); top:0; left:0;}
+#vk-login .container {z-index: 1000; position: absolute; display: none; background: #090869; border: 2px solid #FFFFFF; color: #CCCCCC;
+font-size: 12px; padding: 10px;}
+#vk-login .container p {line-height: 160%; margin-bottom: 5px;}
+#vk-login img:hover {cursor: pointer;}
+
+
+.ad {color:#918D63; font-size:13px;font-style:italic; text-align:center; width: 500px; margin: 0 auto;}
+.ad a {color:#918D63;}
+
+#overlay {height: 500px; left: 0; opacity: 0.85; position: absolute;  top: 0; width: 100%; z-index: 1000; background: #222;}
+#overlay .info {background: #026AA2; border: 3px solid #fff; margin: auto; position: relative; top: 120px;  width: 500px;  z-index: 1001; padding: 10px;}
+#overlay .info h1 {font-size: 40px; font-family: Arial; text-shadow: 0 2px 2px #000; margin-bottom: 10px;  color: #A2B2ED;}
+#overlay .info p {color: #fff;  font-size: 15px;  line-height: 140%;}
+#overlay .browsers { background: white; border: 4px solid #555555; margin: 10px auto; overflow: hidden;  width: 450px; padding-left: 15px;}
+#overlay .browsers div {background: url(http://cdn.webdev4.us/browsers.png) no-repeat; float: left;  height: 135px; width: 104px;}
+#overlay .browsers div.chrome {background-position: -395px 0;}
+#overlay .browsers div.firefox {background-position: -102px 0;}
+#overlay .browsers div.safari {background-position: -196px 0;}
+#overlay .browsers div.opera {background-position: 0 0;}

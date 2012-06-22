@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<update xmlns="http://ns.adobe.com/air/framework/update/description/1.0">
+<version>1.9</version>
+<url>http://muziq.airy.me/muziq.air</url>
+<description><![CDATA[
+some small fixes
+]]></description>
+</update> 

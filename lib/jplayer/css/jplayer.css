@@ -1,0 +1,30 @@
+div#jp {height:0; width:0; visibility: hidden;}
+div.jp-player {font-size:1em;	font-family:Verdana, Arial, sans-serif;	line-height:1.6;	color: #666; margin-bottom: 10px; display: none;}
+#jp-interface {background-color:#1C1C1C; border:2px solid #3793BE;height:20px;margin:0 auto;position:relative;width:347px;}
+#jp-interface {padding: 3px 1px;}
+
+#jp-interface ul.jp-controls {list-style-type:none; padding:0; margin: 0;}
+#jp-interface ul.jp-controls li {position: absolute;}
+#jp-interface ul.jp-controls a {display: block;	position: absolute;	overflow:hidden; text-indent:-9999px;}
+
+a.jp-play,a.jp-pause,a.jp-stop {top:2px;width:16px;height:16px;}
+a.jp-play {background: url("play.png") no-repeat; left: 5px;}
+a.jp-pause {background: url("pause.png") no-repeat; left: 5px;}
+a.jp-stop {background: url("stop.png") no-repeat; left: 25px;}
+
+a.jp-previous {left:20px;	top:0px;	background: url("jplayer.blue.monday.jpg") 0 -112px no-repeat;	width:28px;	height:28px;}
+a.jp-previous:hover {background: url("jplayer.blue.monday.jpg") -29px -112px no-repeat;}
+a.jp-next {left:88px;top:26px;	background: url("jplayer.blue.monday.jpg") 0 -141px no-repeat;width:28px;height:28px;}
+a.jp-next:hover {background: url("jplayer.blue.monday.jpg") -29px -141px no-repeat;}
+
+a.jp-mute, a.jp-unmute {top:2px;	background: url(volmin.png) no-repeat;	width:16px;	height:16px; left:255px;}
+
+div.jp-volume-bar {	position: absolute;	overflow:hidden;	top:10px;	background: url("jplayer.blue.monday.jpg") 0 -250px repeat-x;	width:55px;	height:5px;	cursor: pointer;	left:280px;}
+div.jp-volume-bar-value {background: url("jplayer.blue.monday.jpg") 0 -256px repeat-x;	width:0px;	height:5px;}
+div.jp-progress {position: absolute;overflow:hidden; top:8px; background-color: #465B66; width:120px; height:10px; left:87px;}
+div.jp-seek-bar {background: url("jplayer.blue.monday.jpg") 0 -202px repeat-x; width:0px; height:15px; cursor: pointer;}
+div.jp-play-bar {background: url("jplayer.blue.monday.jpg") 0 -218px repeat-x ; width:0px; height:16px;}
+
+div.jp-current-time, div.jp-duration {position: absolute; top:5px;	font-size:10px;font-style:oblique; color: #bbb;}
+div.jp-current-time {left: 50px;}
+div.jp-duration {text-align: right; left:215px;}
