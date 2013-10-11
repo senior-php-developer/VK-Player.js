@@ -162,6 +162,7 @@ function AudioSearch() {
 		}
 		var keys = arsort(sort, 'SORT_NUMERIC');
 		var dur = keys[0];
+		var i = 0;
 		
 		for (key in data.response) {
 			i++;
