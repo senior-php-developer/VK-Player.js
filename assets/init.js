@@ -8,7 +8,7 @@ $(function(){
 	as = new AudioSearch();
 	plist = new Playlist();
 	
-	VK.init({apiId: 1902594, nameTransportPath: '/xd_receiver.html', status: true});
+	VK.init({apiId:1902594, nameTransportPath: '/xd_receiver.html', status: true});
 	VK.Observer.subscribe('auth.login', function(response) {
 		auth = true;
 		$('#vk-login').hide();
@@ -53,6 +53,20 @@ $(function(){
 			as.getFiles($(this));
 	});
 
+	$('.results .source').live('click', function(e) {
+		var tracks = $(this).parent().parent()[0].tracks;
+		var src = $(this).parent().parent()[0].source;
+		src++;
+		if (src > 2) src = 0;
+		$(this).parent().parent()[0].source = src;
+		var tr = tracks[src];
+		$(this).parent().find('.dur').text(makeDur(tr.d));
+		$(this).parent().parent().attr('data-url', tr.s);
+		$(this).next().attr('href', tr.s).attr('data-downloadurl', 'audio/mpeg:track2:'+tr.s);
+		e.preventDefault();
+		$(this).parent().parent().click();
+
+	});	
 	
 	$('.search .query').keydown(function(event){
 		clearTimeout(live.open);
@@ -88,6 +102,32 @@ $(function(){
 		$('.search .query').val(hash.artist);
 		as.getSimilar();
 	}
+	
+	$('.social .share').click(function(){
+		FB.ui({
+			method: 'stream.publish',
+			message: 'All music ever now available on facebook',
+			attachment: {name: 'YAMP', caption: 'Yet Another Music Player', description: 'Find artists, listen to music, add to playlists and access this great player from anywhere.', href: 'http://apps.facebook.com/airy-player/'}, 
+			action_links: [{text: 'YAMP', href: 'http://apps.facebook.com/airy-player/'}]
+		}, function(response) {
+			if (response && response.post_id) {
+				alert('Post was published.');
+			}
+		});
+	});
+	$('.social .bookmark').click(function(){
+		FB.ui({
+			method: 'bookmark.add'	
+		}, function(){
+		
+		});	
+	});
+	$('.social .invite').click(function(){
+		var dialog = {method: 'fbml.dialog', display: 'dialog', width: '800', height: '500',
+		fbml: '<fb:request-form action="http://apps.airy.me/yamp" method="POST" invite="true" type="YAMP" content="Hey, why dont you try this amazing music player I found on Facebook!"><fb:multi-friend-selector showborder="false" actiontext="Invite your friends to use YAMP!" cols="3" /></fb:request-form></fb:fbml>'
+  };
+		FB.ui(dialog);
+	});
 	
 	plist.load();
 });

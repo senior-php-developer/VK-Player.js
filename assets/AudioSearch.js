@@ -162,20 +162,35 @@ function AudioSearch() {
 		}
 		var keys = arsort(sort, 'SORT_NUMERIC');
 		var dur = keys[0];
+		var selecta = [];
+		var taken = [];
 		var i = 0;
-		
 		for (key in data.response) {
 			i++;
 			var d = data.response[key];
 			if (typeof(d.title) == 'undefined') continue
-			if (d.duration == dur) {
-				var duration = parseInt(d.duration / 60) + ":" + ( (d.duration % 60) > 9 ? d.duration % 60 : "0" + d.duration % 60 );
-				cur.attr('data-url', d.url);
-				cur.find('.info').html('<span class="dur">'+duration+'</span><a class="add" title="To Playlist" data-url="'+d.url+'"><img src="assets/img/playlist.gif"></a><img src=assets/img/download.gif></a><a title=Download class="dragout" target=_blank href="'+d.url+'" data-downloadurl="audio/mpeg:'+list.artist+' - '+list.title+'.mp3:'+d.url+'"><img src=assets/img/dl.gif></a> ');
-				break;
+			if ($.inArray(d.duration, taken) != -1) continue;
+			setHash(list.artist,list.title);
+			var words = list.title.split(' '), wrong = 0;
+			for(var k in words) {
+				if (!words.hasOwnProperty(k)) continue;
+				if (words[k].length < 2) continue;
+				if (lc(d.title).indexOf(lc(words[k])) == -1) wrong++;
 			}
+			if (wrong/words.length > 0.5) continue;
+			selecta.push({d:d.duration, s:d.url});
+			taken.push(d.duration);
+			if (selecta.length > 2) break;
 		}
-		$('.dragout').dragout();		
+		cur[0].tracks = selecta;
+		cur[0].source = 0;
+		cur.attr('data-url',selecta[0].s);
+		var duration = parseInt(selecta[0].d / 60) + ":" + ( (selecta[0].d % 60) > 9 ? selecta[0].d % 60 : "0" + selecta[0].d % 60 );
+		cur.find('.info').html('<span class="dur">'+duration+'</span><a class="add" title="To Playlist" data-url="'+selecta[0].s+'"><img src="assets/img/playlist.gif"></a>\
+		<a title="Change source" href=# class="source"><img src=assets/img/download.gif></a>\
+		<a title=Download class="dragout" target=_blank href="'+selecta[0].s+'" data-downloadurl="audio/mpeg:'+list.artist+' - '+list.title+'.mp3:'+selecta[0].s+'"><img src=assets/img/dl.gif></a> ');
+		$('.dragout').dragout();
+		
 		cur.click();
 	}
 }
